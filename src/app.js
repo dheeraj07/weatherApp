@@ -9,6 +9,7 @@ const quote = require('../public/utils/quote');
 const rootDir = path.join(__dirname,'../public')
 const viewsDir = path.join(__dirname,'../public/templates/views');
 const partials = path.join(__dirname,'../public/templates/partials');
+const port = process.env.PORT || 3000;
 
 const app = express();
 
@@ -80,6 +81,6 @@ app.get('*',(req,res) => {
     });
 })
 
-app.listen(3000,()=>{
-    console.log("Server has started");
+app.listen(port,()=>{
+    console.log("Server has started at "+port);
 });
