@@ -59,3 +59,26 @@ button{
     color: white;
     padding: 8px;
 }
+
+.quotesPage{
+    margin: 50px 0px 20px 0px;
+    text-align: center;
+    font-size: 48px;
+    font-style: italic;
+    width: 100%;
+    height: 150px;
+    position: relative;
+}
+
+#author{
+    color: darkgray;
+}
+
+#getQuote{
+    padding: 20px 30px 20px 30px;
+    background-color: darkgray;
+    position: fixed;
+    border-radius: 10px;
+    left:46%;
+    bottom:20%;
+}

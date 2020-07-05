@@ -11,11 +11,17 @@
 <body>
 <div class="main-content">
 {{>header}}
-<p>{{quoteRes}}</p>
-<p>{{author}}</p>
+
+<div class = "quotesPage">
+<p id="mainQuote"></p>
+<p id="author"></p>
+</div>
+
+<button id="getQuote">-- Inspire me --</button>
 </div>
 
 {{>footer}}
+<script src='./js/quoteApp.js'></script>
 </body>
 
 </html>

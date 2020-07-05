@@ -20,37 +20,44 @@ app.set('views',viewsDir);
 hbs.registerPartials(partials);
 
 app.get('',(req,res) => {
+
     res.render('index',{
         title:"weatherApp"
     });
+
 })
 
 app.get('/quotes',(req,res) => {
+
+    res.render('quotes',{
+        title:'Quotes'
+    });
+
+});
+
+app.get('/quoteDetails',(req,res) =>{
+ 
     const selectQuote = Math.floor(Math.random() * Math.floor(900));
     quote("quotes",selectQuote,(error,response) => { 
         if(response)
         {
             res.send({quote:response.quoteRes,author:response.author});
-            // res.render('quotes',{
-            //     quoteRes:response.quoteRes,
-            //     author: response.author
-            // })
         }
         else
         {
-            res.send({error:error});
-        //    res.render('error',{
-        //        errorMessage:error
-        //    })
+           res.send({error:error});
         }
     }); 
 });
 
 app.get('/weather',(req,res) => {
+    
     res.render('weather',{title:"Weather"});
+
 });
 
 app.get('/weatherDetails',(req,res) => {
+
     if(req.query.address)
     {
         weather(req.query.address,(error,body)=>{
@@ -59,28 +66,37 @@ app.get('/weatherDetails',(req,res) => {
         })
     }
     else  res.send({error:"Please enter the address"});
+
 });
 
 
 app.get('/help',(req,res) => {
+
     res.render('help',{
         title:"Help",
         author:"Dheeraj"
     });
+
 });
 
 app.get('/help/*',(req,res) => {
+
     res.render('error',{
         errorMessage:'Help page found'
     });
+
 });
 
 app.get('*',(req,res) => {
+
     res.render('error',{
         errorMessage:'404 - Page not found'
     });
+
 })
 
 app.listen(port,()=>{
+
     console.log("Server has started at "+port);
+
 });
